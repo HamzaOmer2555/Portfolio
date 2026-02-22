@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamza Omer | DevOps & Infrastructure Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Particle Canvas Background -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>HO<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-nav">Let's Talk</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home" class="mobile-nav-link">Home</a></li>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            <li><a href="#certifications" class="mobile-nav-link">Certifications</a></li>
+            <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+            <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+            <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Available for opportunities
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-greeting">Hi, I'm</span>
+                <span class="hero-name" data-text="Hamza Omer">Hamza Omer</span>
+            </h1>
+            <div class="hero-roles">
+                <span class="role-static">I build</span>
+                <span class="role-dynamic" id="typedText"></span>
+                <span class="cursor-blink">|</span>
+            </div>
+            <p class="hero-description">
+                Linux System Administrator & DevOps Engineer specializing in scalable infrastructure, 
+                networking, and automated systems. Bridging robust system architecture with AI-driven efficiency.
+            </p>
+            <div class="hero-cta">
+                <a href="#certifications" class="btn btn-primary">
+                    <i class="fas fa-certificate"></i>
+                    View Certifications
+                </a>
+                <a href="#projects" class="btn btn-outline">
+                    <i class="fas fa-rocket"></i>
+                    See Projects
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="7">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Certifications</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="3">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="50">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Projects Delivered</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">hamza@portfolio:~</span>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command" id="terminalCmd"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;about&gt;</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-intro">
+                        I'm a <span class="highlight">Linux System Administrator</span> and 
+                        <span class="highlight">DevOps Engineer</span> based in Islamabad, Pakistan. 
+                        Currently pursuing my Bachelor's in Computer Science at 
+                        <span class="highlight">FAST-NUCES</span>, where I've been on the 
+                        <span class="highlight">Dean's List for 3 consecutive years</span>.
+                    </p>
+                    <p>
+                        I specialize in building and managing scalable infrastructure, networking solutions, 
+                        and automated systems. My expertise spans high-availability environments using 
+                        Proxmox and Kubernetes, with a keen focus on streamlining deployment workflows 
+                        through CI/CD pipelines, Infrastructure as Code, and monitoring solutions.
+                    </p>
+                    <p>
+                        I'm passionate about bridging the gap between robust system architecture and 
+                        AI-driven efficiency, constantly exploring new ways to optimize and automate 
+                        complex infrastructure challenges.
+                    </p>
+                    <div class="about-details">
+                        <div class="detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Islamabad, Pakistan</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>BS Computer Science, FAST-NUCES</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-award"></i>
+                            <span>Dean's List — 3 Consecutive Years</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Available for Freelance & Full-time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="code-card">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="code-filename">hamza.yaml</span>
+                        </div>
+                        <pre class="code-content"><code><span class="yaml-key">apiVersion:</span> <span class="yaml-value">v1</span>
+<span class="yaml-key">kind:</span> <span class="yaml-value">Engineer</span>
+<span class="yaml-key">metadata:</span>
+  <span class="yaml-key">name:</span> <span class="yaml-value">hamza-omer</span>
+  <span class="yaml-key">labels:</span>
+    <span class="yaml-key">role:</span> <span class="yaml-value">devops-engineer</span>
+    <span class="yaml-key">level:</span> <span class="yaml-value">certified-professional</span>
+<span class="yaml-key">spec:</span>
+  <span class="yaml-key">education:</span> <span class="yaml-value">BS Computer Science</span>
+  <span class="yaml-key">location:</span> <span class="yaml-value">Islamabad, PK</span>
+  <span class="yaml-key">certifications:</span>
+    <span class="yaml-value">- RHCSA</span>
+    <span class="yaml-value">- RHCE</span>
+    <span class="yaml-value">- CKA</span>
+    <span class="yaml-value">- CCNA</span>
+    <span class="yaml-value">- CCNP</span>
+  <span class="yaml-key">status:</span> <span class="yaml-value">Ready</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section (MAIN HIGHLIGHT) -->
+    <section id="certifications" class="section certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;certifications&gt;</span>
+                <h2 class="section-title">Professional Certifications</h2>
+                <p class="section-subtitle">Industry-recognized credentials that validate my expertise</p>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Certification Categories -->
+            <div class="cert-categories">
+                <!-- Linux / RedHat -->
+                <div class="cert-category" data-category="redhat">
+                    <div class="cert-category-header">
+                        <div class="cert-icon redhat">
+                            <i class="fab fa-redhat"></i>
+                        </div>
+                        <div>
+                            <h3>Linux System Administration</h3>
+                            <p>Red Hat Certified Professional</p>
+                        </div>
+                    </div>
+                    <div class="cert-cards">
+                        <div class="cert-card featured">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-badge">
+                                <i class="fab fa-redhat"></i>
+                            </div>
+                            <div class="cert-card-content">
+                                <span class="cert-level">Professional</span>
+                                <h4>RHCSA</h4>
+                                <p>Red Hat Certified System Administrator</p>
+                                <div class="cert-skills">
+                                    <span>System Management</span>
+                                    <span>Security</span>
+                                    <span>Storage</span>
+                                    <span>Networking</span>
+                                </div>
+                            </div>
+                            <div class="cert-card-shine"></div>
+                        </div>
+                        <div class="cert-card featured">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-badge">
+                                <i class="fab fa-redhat"></i>
+                            </div>
+                            <div class="cert-card-content">
+                                <span class="cert-level expert">Expert</span>
+                                <h4>RHCE</h4>
+                                <p>Red Hat Certified Engineer</p>
+                                <div class="cert-skills">
+                                    <span>Ansible</span>
+                                    <span>Automation</span>
+                                    <span>Advanced Admin</span>
+                                    <span>Scripting</span>
+                                </div>
+                            </div>
+                            <div class="cert-card-shine"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kubernetes / DevOps -->
+                <div class="cert-category" data-category="kubernetes">
+                    <div class="cert-category-header">
+                        <div class="cert-icon kubernetes">
+                            <i class="fas fa-dharmachakra"></i>
+                        </div>
+                        <div>
+                            <h3>DevOps Practices</h3>
+                            <p>Cloud Native Computing Foundation</p>
+                        </div>
+                    </div>
+                    <div class="cert-cards">
+                        <div class="cert-card featured">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-badge kubernetes-badge">
+                                <i class="fas fa-dharmachakra"></i>
+                            </div>
+                            <div class="cert-card-content">
+                                <span class="cert-level expert">Administrator</span>
+                                <h4>CKA</h4>
+                                <p>Certified Kubernetes Administrator</p>
+                                <div class="cert-skills">
+                                    <span>Cluster Mgmt</span>
+                                    <span>Networking</span>
+                                    <span>Security</span>
+                                    <span>Troubleshooting</span>
+                                </div>
+                            </div>
+                            <div class="cert-card-shine"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cisco Networking -->
+                <div class="cert-category" data-category="cisco">
+                    <div class="cert-category-header">
+                        <div class="cert-icon cisco">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div>
+                            <h3>Cisco Network Administration</h3>
+                            <p>Cisco Certified Networking Professional</p>
+                        </div>
+                    </div>
+                    <div class="cert-cards">
+                        <div class="cert-card">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-badge cisco-badge">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="cert-card-content">
+                                <span class="cert-level">Associate</span>
+                                <h4>CCNA</h4>
+                                <p>Cisco Certified Network Associate</p>
+                                <div class="cert-skills">
+                                    <span>Routing</span>
+                                    <span>Switching</span>
+                                    <span>IP Services</span>
+                                </div>
+                            </div>
+                            <div class="cert-card-shine"></div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-badge cisco-badge">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="cert-card-content">
+                                <span class="cert-level specialist">Specialist</span>
+                                <h4>ENCOR</h4>
+                                <p>Enterprise Network Core Technologies</p>
+                                <div class="cert-skills">
+                                    <span>Architecture</span>
+                                    <span>Virtualization</span>
+                                    <span>Infrastructure</span>
+                                </div>
+                            </div>
+                            <div class="cert-card-shine"></div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-badge cisco-badge">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="cert-card-content">
+                                <span class="cert-level specialist">Specialist</span>
+                                <h4>ENARSI</h4>
+                                <p>Enterprise Advanced Routing & Services</p>
+                                <div class="cert-skills">
+                                    <span>BGP</span>
+                                    <span>OSPF</span>
+                                    <span>VPN</span>
+                                    <span>Troubleshooting</span>
+                                </div>
+                            </div>
+                            <div class="cert-card-shine"></div>
+                        </div>
+                        <div class="cert-card featured">
+                            <div class="cert-card-glow"></div>
+                            <div class="cert-badge cisco-badge">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="cert-card-content">
+                                <span class="cert-level expert">Professional</span>
+                                <h4>CCNP</h4>
+                                <p>Cisco Certified Network Professional</p>
+                                <div class="cert-skills">
+                                    <span>Enterprise</span>
+                                    <span>Advanced Routing</span>
+                                    <span>SD-WAN</span>
+                                    <span>Automation</span>
+                                </div>
+                            </div>
+                            <div class="cert-card-shine"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification Timeline -->
+            <div class="cert-summary">
+                <div class="cert-summary-card">
+                    <div class="summary-icon"><i class="fab fa-redhat"></i></div>
+                    <span class="summary-count">2</span>
+                    <span class="summary-label">Red Hat Certs</span>
+                </div>
+                <div class="cert-summary-card">
+                    <div class="summary-icon"><i class="fas fa-dharmachakra"></i></div>
+                    <span class="summary-count">1</span>
+                    <span class="summary-label">Kubernetes Cert</span>
+                </div>
+                <div class="cert-summary-card">
+                    <div class="summary-icon"><i class="fas fa-network-wired"></i></div>
+                    <span class="summary-count">4</span>
+                    <span class="summary-label">Cisco Certs</span>
+                </div>
+                <div class="cert-summary-card total">
+                    <div class="summary-icon"><i class="fas fa-certificate"></i></div>
+                    <span class="summary-count">7</span>
+                    <span class="summary-label">Total Certifications</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;skills&gt;</span>
+                <h2 class="section-title">Technical Arsenal</h2>
+                <p class="section-subtitle">Technologies and tools I work with daily</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category-card">
+                    <div class="skill-cat-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3>Linux & Systems</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">RHEL / CentOS</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Ubuntu / Debian</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Proxmox VE</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Shell Scripting (Bash)</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-cat-icon">
+                        <i class="fas fa-dharmachakra"></i>
+                    </div>
+                    <h3>Container & Orchestration</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Kubernetes</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Helm</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Podman</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-cat-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>DevOps & CI/CD</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Jenkins</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Ansible</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Terraform</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Git / GitHub</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-cat-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Networking</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Cisco IOS / NX-OS</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">BGP / OSPF</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">VPN / SD-WAN</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Firewall / ACL</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-cat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Monitoring & Observability</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Prometheus</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Grafana</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">ELK Stack</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Alertmanager</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category-card">
+                    <div class="skill-cat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Development & AI</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript / Node.js</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">HuggingFace / LLMs</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">RAG Architectures</span>
+                            <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;projects&gt;</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Real-world solutions I've architected and deployed</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card large">
+                    <div class="project-image">
+                        <div class="project-visual kubernetes-visual">
+                            <div class="k8s-node">
+                                <i class="fas fa-server"></i>
+                                <span>Node 1</span>
+                            </div>
+                            <div class="k8s-node">
+                                <i class="fas fa-server"></i>
+                                <span>Node 2</span>
+                            </div>
+                            <div class="k8s-node">
+                                <i class="fas fa-server"></i>
+                                <span>Node 3</span>
+                            </div>
+                            <div class="k8s-connector"></div>
+                            <div class="k8s-center">
+                                <i class="fas fa-dharmachakra"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag kubernetes-tag">Kubernetes</span>
+                            <span class="tag">Prometheus</span>
+                            <span class="tag">Grafana</span>
+                            <span class="tag">kubeadm</span>
+                        </div>
+                        <h3>Three-Tier App on Kubernetes</h3>
+                        <p>
+                            Architected and deployed a production-grade three-tier application on a 
+                            3-node Kubernetes cluster built with kubeadm. Implemented comprehensive 
+                            network connectivity, persistent volume management, and full-stack 
+                            monitoring with Prometheus and Grafana dashboards.
+                        </p>
+                        <div class="project-highlights">
+                            <div class="highlight">
+                                <i class="fas fa-check-circle"></i>
+                                <span>3-Node HA Cluster</span>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Network Policies & Ingress</span>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Persistent Storage</span>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Real-time Monitoring</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fab fa-github"></i> View Source
+                            </a>
+                            <a href="#" class="btn btn-small btn-outline-small">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-visual ai-visual">
+                            <div class="ai-brain">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="ai-connections">
+                                <div class="ai-dot"></div>
+                                <div class="ai-dot"></div>
+                                <div class="ai-dot"></div>
+                                <div class="ai-dot"></div>
+                                <div class="ai-dot"></div>
+                                <div class="ai-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag ai-tag">RAG / LLM</span>
+                            <span class="tag">HuggingFace</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Full-Stack</span>
+                        </div>
+                        <h3>RAG-Powered Web Application</h3>
+                        <p>
+                            Designed and implemented a dynamic web application integrating 
+                            Retrieval-Augmented Generation (RAG) and LLM models, enabling 
+                            real-time contextual responses by leveraging external data sources.
+                        </p>
+                        <div class="project-highlights">
+                            <div class="highlight">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Real-time AI Responses</span>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-check-circle"></i>
+                                <span>External Data Integration</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fab fa-github"></i> View Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-visual infra-visual">
+                            <div class="infra-icons">
+                                <i class="fas fa-cloud"></i>
+                                <i class="fas fa-code-branch"></i>
+                                <i class="fas fa-shield-alt"></i>
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Ansible</span>
+                            <span class="tag">Terraform</span>
+                            <span class="tag">Jenkins</span>
+                            <span class="tag">CI/CD</span>
+                        </div>
+                        <h3>Infrastructure Automation Pipeline</h3>
+                        <p>
+                            Built end-to-end infrastructure automation using Ansible for 
+                            configuration management, Terraform for provisioning, and Jenkins 
+                            for CI/CD — serving multiple clients on Fiverr and Upwork.
+                        </p>
+                        <div class="project-highlights">
+                            <div class="highlight">
+                                <i class="fas fa-check-circle"></i>
+                                <span>IaC with Terraform</span>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Automated Deployments</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn-small">
+                                <i class="fab fa-github"></i> View Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;experience&gt;</span>
+                <h2 class="section-title">Work Experience</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot active"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Infrastructure Automation Engineer</h3>
+                                <span class="company">Freelance — Fiverr / Upwork</span>
+                            </div>
+                            <span class="timeline-date">Aug 2024 — Present</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Managing large-scale applications hosted as pods on Kubernetes clusters</li>
+                            <li>Infrastructure and Network Automation using Ansible Automation Platform</li>
+                            <li>CI/CD pipelines using Jenkins to streamline deployment processes</li>
+                            <li>Provisioning infrastructure with Terraform (IaC)</li>
+                            <li>Monitoring and Health Management using Prometheus and Grafana</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Kubernetes</span>
+                            <span>Ansible</span>
+                            <span>Jenkins</span>
+                            <span>Terraform</span>
+                            <span>Prometheus</span>
+                            <span>Grafana</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Web Dev & AI Developer</h3>
+                                <span class="company">Genesys Lab — FAST-NUCES</span>
+                            </div>
+                            <span class="timeline-date">Jun 2024 — Aug 2024</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Gained hands-on experience in developing and maintaining dynamic web applications</li>
+                            <li>Worked on both front-end and back-end full-stack development</li>
+                            <li>Acquired proficiency in utilizing HuggingFace AI models for intelligent applications</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Full-Stack</span>
+                            <span>HuggingFace</span>
+                            <span>AI/ML</span>
+                            <span>Web Dev</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;contact&gt;</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's build something amazing together</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>
+                        Whether you need infrastructure automation, Kubernetes management, 
+                        or network engineering — I'm ready to help bring your project to life.
+                    </p>
+                    <div class="contact-methods">
+                        <a href="mailto:hamza.omer.zaki@gmail.com" class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">hamza.omer.zaki@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:+923295126066" class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="contact-label">Phone</span>
+                                <span class="contact-value">+92 329 512 6066</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ho0192" target="_blank" class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <span class="contact-label">LinkedIn</span>
+                                <span class="contact-value">linkedin.com/in/ho0192</span>
+                            </div>
+                        </a>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Islamabad, Pakistan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/ho0192" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/" target="_blank" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.fiverr.com/" target="_blank" class="social-link" aria-label="Fiverr">
+                            <i class="fas fa-briefcase"></i>
+                        </a>
+                        <a href="https://www.upwork.com/" target="_blank" class="social-link" aria-label="Upwork">
+                            <i class="fas fa-user-tie"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Your Email</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required placeholder=" ">
+                            <label for="subject">Subject</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                            <label for="message">Your Message</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>HO<span class="logo-bracket">/&gt;</span>
+                </div>
+                <p class="footer-text">
+                    Designed & Built by Hamza Omer &copy; 2026
+                </p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -50,11 +50,30 @@ check_docker() {
 
 # Check Docker daemon is running
 check_docker_daemon() {
-    if ! docker ps > /dev/null 2>&1; then
-        print_error "Docker daemon is not running"
-        exit 1
+    # Try docker ps first
+    if docker ps > /dev/null 2>&1; then
+        print_success "Docker daemon is running"
+        return 0
     fi
-    print_success "Docker daemon is running"
+    
+    # If docker ps fails, check if Docker service is running
+    if systemctl is-active --quiet docker 2>/dev/null; then
+        print_success "Docker service is running"
+        print_info "Note: You may need to add your user to the docker group:"
+        print_info "  sudo usermod -aG docker \$USER"
+        print_info "  newgrp docker"
+        return 0
+    fi
+    
+    # Check with sudo as fallback
+    if sudo -n docker ps > /dev/null 2>&1; then
+        print_success "Docker daemon is running (using sudo)"
+        return 0
+    fi
+    
+    print_error "Docker daemon is not running"
+    print_info "Try starting it with: sudo systemctl start docker"
+    exit 1
 }
 
 # Build development image
